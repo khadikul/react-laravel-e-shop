@@ -1,18 +1,70 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500&display=swap');
 
+@layer components {
 
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    .card {
+        border-radius: 0.25rem;
+        --bg-opacity: 1;
+        background-color: #fff;
+        background-color: rgba(255, 255, 255, var(--bg-opacity));
+        border-width: 1px;
+        --border-opacity: 1;
+        border-color: #e2e8f0;
+        border-color: rgba(226, 232, 240, var(--border-opacity))
+    }
+
+    .card .card-header {
+        border-bottom-width: 1px;
+        padding: 1.5rem
+    }
+
+    .card .card-body {
+        padding: 1.5rem
+    }
+
+    .card .card-footer {
+        border-top-width: 1px;
+        padding: 1.5rem
+    }
+
+    .report-card:hover .card {
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        --border-opacity: 1;
+        border-color: #fff;
+        border-color: rgba(255, 255, 255, var(--border-opacity));  transform: scale(1.01);
+    }
+      
+    .report-card:hover .footer {
+        padding: 0;
+        border-width: 0
+    }
+      
+    .report-card .footer, .report-card .card {
+        transition-property: all;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 300ms
+    }
+
+    .sidebarActive{
+        @apply bg-gray-200 mb-3 flex items-center gap-2 px-2 rounded py-2 capitalize font-medium hover:text-teal-600 transition ease-in-out duration-500 hover:bg-gray-700
+    }
+
+    .navbar{
+        @apply md:flex-col md:py-4 md:absolute md:top-[2.9rem] md:transform transition duration-300 md:w-full md:bg-red-300 md:left-0 flex justify-between items-center gap-5 font-semibold text-[1rem] text-gray-700
+    }
+
+    .mobileNav{
+        @apply md:flex-col md:py-4 md:absolute md:top-[2.9rem] md:transform md:hidden transition duration-300 md:w-full md:bg-red-300 md:left-0 flex justify-between items-center gap-5 font-semibold text-[1rem] text-gray-700
+    }
+
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@layer base{
+    body{
+        @apply font-nunito
+    }
 }
+
